@@ -46,3 +46,17 @@ public class DataProcessor {
         System.out.println("Processed result: " + result);
     }
 }
+// Step 5: Demonstrating flexibility
+public class Main {
+    public static void main(String[] args) {
+        // Injecting ApiDataService
+        DataService apiService = new ApiDataService("API12345");
+        DataProcessor processorApi = new DataProcessor(apiService);
+        processorApi.process();  // Output: Data fetched from API using key: API12345
+
+        // Injecting FileDataService
+        DataService fileService = new FileDataService("/path/to/file.txt");
+        DataProcessor processorFile = new DataProcessor(fileService);
+        processorFile.process();  // Output: Data read from file located at: /path/to/file.txt
+    }
+}
